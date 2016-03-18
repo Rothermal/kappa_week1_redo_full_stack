@@ -1,0 +1,25 @@
+body {
+    background-color: #42250e;
+}
+h1, p, .form-group, .total-monthly-salary {
+    color: aliceblue;
+}
+
+img {
+    padding: 10px;
+}
+
+/*alternate background option.*/
+.logo {
+    /*background-image: url('../assets/images/marvel-background.jpg');*/
+    background-image: url('../assets/images/marvel-drawing.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 325px;
+    padding: 15px;
+}
+
+
+.well {
+    background-color: #350b23;
+}

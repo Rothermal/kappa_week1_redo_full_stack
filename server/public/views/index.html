@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Marvel</title>
+    <script src="vendor/jquery/jquery.min.js">
+    </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js">
+    </script>
+    <script src="assets/scripts/client.min.js">
+    </script>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
+</head>
+<body>
+    <h1 class="text-center">Marvel Employee Payroll</h1>
+    <header class="logo container"></header>
+    <div class="total-monthly-salary container text-center"></div>
+    <div class="container">
+        <div class="place-for-buttons">
+            <button class="btn btn-warning toggleForm" data-target=
+            "#employee-form" data-toggle="collapse">Show/hide form</button>
+            <button class="btn btn-primary get-random-char">Grab a Random
+            Hero</button> <button class="btn btn-info get-random-comic">Grab a
+            Random Comic-Book</button> <button class=
+            "btn btn-success get-random-series">Grab a Random Series</button>
+        </div>
+        <form class="collapse" id="employee-form" name="employee-form">
+            <div class="form-group">
+                <label for="firstName">First Name:</label> <input class=
+                "form-control" id="firstName" name="firstName" placeholder=
+                "Enter first name" type="text">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label> <input class=
+                "form-control" id="lastName" name="lastName" placeholder=
+                "Enter last name" type="text">
+            </div>
+            <div class="form-group">
+                <label for="employeeId">Employee Id number:</label>
+                <input class="form-control" id="employeeId" name="employeeId"
+                placeholder="Enter employee Id #" type="number">
+            </div>
+            <div class="form-group">
+                <label for="employeeTitle">Super hero title:</label>
+                <input class="form-control" id="employeeTitle" name=
+                "employeeTitle" placeholder="Enter employee title" required=""
+                type="text">
+            </div>
+            <div class="form-group">
+                <label for="employeeSalary">Employee salary:</label>
+                <input class="form-control" id="employeeSalary" name=
+                "employeeSalary" placeholder="Enter employee salary" type=
+                "number">
+            </div><input class="btn btn-success" type="submit" value=
+            "Add an Employee">
+        </form>
+    </div>
+    <div class="empContainer container"></div>
+</body>
+</html>
