@@ -29,23 +29,11 @@ function enable(){
     $('.get-random-char').on('click',randomCharacter);
     $('.get-random-comic').on('click',randomComic);
     $('.get-random-series').on('click',randomSeries);
-    //$('.empContainer').on('click','.moreinfo',comic);
+    $('.empty-display').on('click',emptyDisplay);
+    //$('.empContainer').on('click','.addDB',addToDb);
     $('#employee-form').on('submit',processForm);
 
 }
-
-//function Employee(firstname, lastname, id , title, salary ) {
-//    this.firstName = firstname;
-//    this.lastName = lastname;
-//    this.employeeId = id;
-//    this.employeeTitle = title ;
-//    this.employeeSalary = salary ;
-//
-//    employeeArray.push(this);
-//}
-
-//var ghostRider = new Employee('Johnny','Blaze',1968,"Ghost Rider",24000);
-//var starLord = new Employee('Peter','Quill',1976,"Star-Lord",24000);
 
 function deleteEmployee(){
     removeFromPayroll( $(this).parent().data().data );
@@ -55,7 +43,6 @@ function deleteEmployee(){
 
 function processForm(event){
     event.preventDefault();
-// code from scott
     var values = {};
     $.each($('#employee-form').serializeArray(), function(i,field){
         values[field.name] = field.value;
@@ -165,7 +152,7 @@ function randomCharacter (){
 function AppendDom(employee) {
     primaryKey++;
     employee.key = primaryKey;
-    $('.empContainer').append("<div class='well col-sm-3'></div>");
+    $('.empContainer').append("<div class='well col-sm-8'></div>");
     $el = $('.empContainer').children().last();
     $el.data('data', employee.key);
     $el.append('<p>Name: ' + employee.first_name + ' ' + employee.last_name + '</p>');
@@ -175,7 +162,7 @@ function AppendDom(employee) {
     $el.append('<img class="img-responsive img-circle" src=' + employee.image + ' >');
     $el.append('<p>BackStory: ' + employee.description + '</p>');
     $el.append('<button class="btn btn-danger delete"> Remove Employee </button>');
-    $el.append('<button class="btn btn-primary moreinfo"> More Info </button>');
+    //$el.append('<button class="btn btn-primary addDB"> Add to DB </button>');
 }
 
 function randomComic (){
@@ -227,7 +214,7 @@ function AppendDomComic(employee) {
     $el.append('<img class="img-responsive " src=' + employee.image + ' >');
     $el.append('<p>Story: ' + employee.description + '</p>');
     $el.append('<button class="btn btn-danger delete"> Remove Employee </button>');
-    //$el.append('<button class="btn btn-primary moreinfo"> More Info </button>');
+    //$el.append('<button class="btn btn-primary moreinfo"> add to DB </button>');
 }
 
 
@@ -287,6 +274,7 @@ function grabEmployeeArray(){
 function postEmployees(newEmployee){
     console.log(newEmployee);
     var employee = newEmployee;
+
     $.ajax({
         type:'POST',
         url:'/employees',
@@ -304,3 +292,15 @@ function postEmployees(newEmployee){
     });
 
 }
+
+function emptyDisplay(){
+    $('.empContainer').empty();
+    total = 0;
+    $('.total-monthly-salary').html('Current Monthly Payroll is : $' + total);
+
+}
+
+//function addToDb(){
+//    console.log('clicked');
+//    // working on a function to be able to add random employees to the database.
+//}
